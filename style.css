@@ -1,0 +1,301 @@
+html, body {
+    margin: 0px;
+}
+
+.header, .footer { 
+    /* van con coma porque son dos cosas distintas, 
+    dos elementos distintos, no uno dentro de otro, 
+    que es lo que el CSS pensaría si está sólo
+    separado por espacio*/
+    background-color: rgb(56, 56, 61);
+    color: #E44D26;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px 10px 30px;
+    box-sizing: border-box;
+            /*arriba, derecha, abajo, izquierda*/
+}
+
+.header .logo {
+    width: 50px;
+    height: 50px;
+     /*El div LOGO es el que mide lo que luego va a
+     medir la imagen, no el div header...*/
+}
+
+.header .logo img,
+.imagen-principal img {
+    width: 100%;
+    height: auto;
+    /*Acá lo que le digo a la imagen es que use
+    todo el tamaño del div, al que le di tamaño
+    antes.*/
+}
+
+.hamburguesa{
+    display: none;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+   /*Todas las cosas de flex van al padre, no a los 
+   hijos.*/
+}
+
+.nav ul li {
+    margin-left: 10px;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+li a {
+    color: #E44D26;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: rgba(228,77,38,0.6);
+    /*Esto es que cuando pase el mouse por
+    encima, se "pinte" de colorcito*/
+}
+
+
+
+.imagen-principal {
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.que-somos {
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    font-family: sans-serif;
+}
+
+.logos-sociales {
+    display: flex;
+}
+
+.logo-somos, .logos-sociales img {
+    width: 40px;
+    height: 40px;
+}
+
+.logos.sociales img{
+    margin-left: 15px;
+} 
+
+.logo-somos img{
+    width: 100%;
+    height: auto;
+}
+
+.texto-somos{
+    text-align: left;
+    max-width: 800px;
+}
+
+.texto-somos .titulo{
+    color: #E44D26;
+    font-size: 1.5em;
+}
+
+.nosotras {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.persona {
+    display: flex;
+    align-items: center;
+}
+
+.persona:hover{
+    filter: grayscale(60%);
+}
+
+.persona .descripcion-persona{
+    margin-left: 60px;
+    text-align: center;
+    color: #E44D26;
+    }
+
+.persona .avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.persona .avatar img{
+    width: 100%;
+    height: auto;
+}
+
+    /*Piquito significa hijo directo.
+    -Si yo escribo .persona > .avatar, se lo 
+    aplica a todos los .avatar hijos de .persona. 
+    
+    -Si yo quiero seleccionar hermanos que estén
+    uno al lado del otro, o sea, que un hijo 
+    reaccione cuando pasa algo con el primero,
+    uso el +  hijo1 + hijo2 */
+
+
+.persona .nombre-persona {
+    font-weight: bold;
+}
+
+.descripcion-persona{
+    font-family: sans-serif;
+}
+
+.contacto {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    
+}
+
+.contacto a{
+    text-decoration: none;
+    color: #E44D26;
+}
+.contacto a:hover{
+    filter: grayscale(60%);
+}
+
+.redes{
+    margin-right: 15px;
+}
+
+.redes img{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+/*Queries*/
+
+@media only screen and (max-width: 900px) {
+    .nosotras, .persona{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .persona .descripcion-persona{
+        margin-left: 0;
+    }
+
+    .hamburguesa{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .imagen-principal {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+
+    .hamburguesa {
+        width: 40px;
+        display: inline-block;
+    }
+
+    .hamburguesa img{
+        width: 100%;
+    }
+
+    .nav ul {
+        display: none;
+    }
+
+    .nav:hover ul{
+        display: flex;
+    }
+
+    .nav {
+        position: relative;
+    }
+
+    .nav ul {
+        position: absolute;
+        right: 0px;
+        flex-direction: column;
+        width: 200px;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .nav ul li{
+        margin-left: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .logo-somos{
+        display: none;
+    }
+
+    .logos-sociales {
+        display: none;
+    }
+
+    .nosotras, .persona{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .persona .descripcion-persona{
+        margin-left: 0;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contacto{
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+
+    .contacto a{
+        font-size: 0.8em;
+    }
+
+    .redes img{
+        width: 25px;
+        height: 25px;
+        margin-left: 20px;
+    }
+
+}
